@@ -1,2 +1,5 @@
 #Ignore folder named `downloads`
 downloads/
+
+#Ignore file named `package-lock.json`
+package-lock.json
