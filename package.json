@@ -1,0 +1,24 @@
+{
+  "name": "Become-a-Node-js-Developer",
+  "version": "1.0.0",
+  "description": "- modules",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sabelogumede/Become-a-Node-js-Developer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sabelogumede/Become-a-Node-js-Developer/issues"
+  },
+  "homepage": "https://github.com/sabelogumede/Become-a-Node-js-Developer#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
