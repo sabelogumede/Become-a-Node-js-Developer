@@ -1,7 +1,11 @@
 const express = require('express')
+const bodyParser = require('body-parser')
 const app = express()
 
+// middleware setup
 app.use(express.static(__dirname))
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended: false}))
 
 //messages list
 const messages = [
@@ -9,14 +13,15 @@ const messages = [
     {name: 'Fezeka', message: 'Hello'}
 ]
 
-// app get route/url
+// app get mesages route/url
 app.get('/messages', (req, res) =>{
     res.send(messages)
 })
-
-
-
-
+// app post mesages route/url
+app.post('/messages', (req, res) =>{
+    messages.push(req.body)
+    res.sendStatus(200)
+})
 
 
 

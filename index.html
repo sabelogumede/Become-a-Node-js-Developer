@@ -9,7 +9,9 @@
         <div class="jumbotron">
             <h1 class="display-4">Send Message</h1>
             <br>
-            <input class="form-control" placeholder="Name">
+            <input id="name" class="form-control" placeholder="Name">
+            <br>
+            <textarea id="message" class="form-control" placeholder="Message"></textarea>
             <br>
             <button id="sendMessage" class="btn btn-success">Send</button>
         </div>
@@ -22,20 +24,26 @@
         $(() => {
             // click send
             $("#sendMessage").click(()=>{
-                addMessages({name: 'Sabelo', message: 'hello'})
+                let message = { name: $("#name").val(), message: $("#message").val()}
+                // call our post-message http url function with a parameter on send
+                postMessage(message)
             })
-            // call our get http function
+            // call our get-messages http function on document redy
             getMessages()
         })
-        // add mesages function
+        // add mesages to screen html function
         function addMessages(message){
             $("#messages").append(`<h4> ${message.name} </h4> <p> ${message.message} </p>`)
         }
-        //http get url with a call back of our data
+        //http get-messages url with a call back of our data.
         function getMessages(){
             $.get('http://localhost:3000/messages', (data) => {
                 data.forEach(addMessages);
             })
+        }
+        //http post-message url that takes a message parameter with a call back of our data
+        function postMessage(message){
+            $.post('http://localhost:3000/messages', message)
         }
     </script>
 
